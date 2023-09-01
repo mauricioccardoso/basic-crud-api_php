@@ -1,0 +1,14 @@
+{
+    "name": "mauricio/basic-api",
+    "autoload": {
+        "psr-4": {
+            "APP\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maurício Cardoso"
+        }
+    ],
+    "require": {}
+}
