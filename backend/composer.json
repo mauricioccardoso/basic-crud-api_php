@@ -2,7 +2,7 @@
     "name": "mauricio/basic-api",
     "autoload": {
         "psr-4": {
-            "APP\\": "./"
+            "App\\": "./"
         }
     },
     "authors": [

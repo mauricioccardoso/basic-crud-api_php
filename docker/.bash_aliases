@@ -1,5 +1,5 @@
 #Language
-alias dev='php -S localhost:8080 -t public'
+alias dev='php -S localhost:8081 -t public'
 
 # System
 alias cl='clear'
