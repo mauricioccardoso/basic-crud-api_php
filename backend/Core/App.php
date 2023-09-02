@@ -2,6 +2,9 @@
 
 namespace App\Core;
 
+use App\Core\Abstractions\Response;
+use App\Core\Exceptions\AppError;
+
 class App
 {
     public static App $app;
@@ -20,6 +23,16 @@ class App
 
     public function run(): void
     {
-        $this->router->resolve();
+        try {
+
+            $this->router->resolve();
+
+        } catch (\Throwable $t) {
+            if ($t instanceof AppError ) {
+                Response::error($t, $t->getCode());
+            } else {
+                Response::error($t);
+            }
+        }
     }
 }

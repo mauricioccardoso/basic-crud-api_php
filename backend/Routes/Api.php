@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Abstractions\Response;
 use App\Core\Abstractions\Route;
 
 Route::get("/", function () {
@@ -11,5 +12,9 @@ Route::get("/hello", function () {
 });
 
 Route::post('/post', function () {
-    echo 'post';
+    $data = [
+        "Hello" => 'World'
+    ];
+
+    Response::json($data);
 });

@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Core\Exceptions\NotFoundException;
+
 class Router
 {
     public array $routes = [];
@@ -28,12 +30,15 @@ class Router
         $this->routes['POST'][$path] = $callback;
     }
 
+    /**
+     * @throws NotFoundException
+     */
     public function callback(string $path, string $method): mixed
     {
         $callback = $this->routes[$method][$path] ?? false;
 
         if(!$callback) {
-            return 'Not found';
+            throw new NotFoundException();
         }
 
         if(is_array($callback)) {
