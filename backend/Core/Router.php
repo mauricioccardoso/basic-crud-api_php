@@ -45,6 +45,7 @@ class Router
             $callback[0] = new $callback[0];
         }
 
+        // To do - Pass route params
         return $callback($this->request);
     }
 }

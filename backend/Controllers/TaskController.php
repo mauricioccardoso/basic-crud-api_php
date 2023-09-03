@@ -13,6 +13,8 @@ class TaskController
     {
     }
 
+    // To do - Add body params validation
+
     public function index()
     {
         $task = new Task();
@@ -33,24 +35,25 @@ class TaskController
         return Response::json($data, 201);
     }
 
-    public function update(Request $request, $id)
-    {
-        $task = new Task();
-        $taskRespository = new Repository($task);
+//    To do - Receive route params
 
-        $data = $taskRespository->update($id, $request->body());
-
-        return Response::json([], 204);
-    }
-
-    public function delete($id)
-    {
-        $task = new Task();
-        $taskRespository = new Repository($task);
-
-        $taskRespository->delete($id);
-
-        return Response::json([], 204);
-    }
-
+//    public function update(Request $request, $id)
+//    {
+//        $task = new Task();
+//        $taskRespository = new Repository($task);
+//
+//        $data = $taskRespository->update($id, $request->body());
+//
+//        return Response::json([], 204);
+//    }
+//
+//    public function delete($id)
+//    {
+//        $task = new Task();
+//        $taskRespository = new Repository($task);
+//
+//        $taskRespository->delete($id);
+//
+//        return Response::json([], 204);
+//    }
 }

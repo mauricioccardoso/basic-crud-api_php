@@ -23,17 +23,17 @@ class Repository
         $query = "SELECT * FROM $tableName";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
     }
 
-    public function getById($id)
+    public function getById(int $id)
     {
         $tableName = $this->model::TABLE_NAME;
         $query = "SELECT * FROM $tableName WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 
     public function create($data)
