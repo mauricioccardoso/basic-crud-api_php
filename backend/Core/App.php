@@ -13,9 +13,12 @@ class App
 
     public Request $request;
 
+    public DB $db;
+
     public function __construct()
     {
         self::$app = $this;
+        $this->db = new DB();
 
         $this->request = new Request();
         $this->router = new Router($this->request);

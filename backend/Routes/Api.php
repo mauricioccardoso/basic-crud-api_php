@@ -1,20 +1,9 @@
 <?php
 
-use App\Core\Abstractions\Response;
+use App\Controllers\TaskController;
 use App\Core\Abstractions\Route;
 
-Route::get("/", function () {
-    echo "home";
-});
-
-Route::get("/hello", function () {
-    echo "hello";
-});
-
-Route::post('/post', function () {
-    $data = [
-        "Hello" => 'World'
-    ];
-
-    Response::json($data);
-});
+Route::get("/tasks", [TaskController::class, 'index']);
+Route::post("/tasks/store", [TaskController::class, 'store']);
+Route::post("/tasks/{id}/update", [TaskController::class, 'update']);
+Route::post("/tasks/{id}/delete", [TaskController::class, 'delete']);

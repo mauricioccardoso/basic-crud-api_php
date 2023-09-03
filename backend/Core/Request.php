@@ -30,6 +30,11 @@ class Request
 
     public function body(): array
     {
+        if ($_SERVER['CONTENT_TYPE'] === 'application/json') {
+            $json = file_get_contents('php://input');
+            return json_decode($json, true);
+        }
+
         $body = [];
         if($this->method() === 'POST') {
             foreach ($_POST as $key => $value) {

@@ -12,6 +12,10 @@ set_exception_handler(function (\Throwable $t) {
     Response::error($t);
 });
 
+$dotenv = Dotenv\Dotenv::createImmutable(ROOT_DIR);
+$dotenv->load();
+
+
 $app = new App();
 
 include_once ROOT_DIR . "/Routes/Api.php";

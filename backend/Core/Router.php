@@ -20,12 +20,12 @@ class Router
         return $this->callback($path, $method);
     }
 
-    public function get(string $path, callable $callback): void
+    public function get(string $path, array | callable $callback): void
     {
         $this->routes['GET'][$path] = $callback;
     }
 
-    public function post(string $path, callable $callback): void
+    public function post(string $path, array | callable $callback): void
     {
         $this->routes['POST'][$path] = $callback;
     }

@@ -29,11 +29,14 @@ class Response
         echo $this->body;
     }
 
+    /**
+     * @throws JsonException
+     */
     public static function json(array $data, int $statusCode = 200 ): void
     {
         header("Content-Type: application/json");
         http_response_code($statusCode);
-        echo json_encode($data);
+        echo json_encode($data, JSON_THROW_ON_ERROR);
     }
 
     /**
